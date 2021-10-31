@@ -6,3 +6,189 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+    position: relative;
+}
+
+.header {
+    height: 95vh;
+    background-image:linear-gradient(to right bottom, rgba(126, 213, 111, 0.6), rgba(40, 180, 133, 0.6)), url("../img/hero.jpg");
+    background-size: cover;
+    background-position: top;
+
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 4vh;
+    left: 4vh;
+}
+
+.logo {
+    height: 4.5rem;
+}
+
+.hero-heading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 6.0rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    text-align: center;
+
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.74rem;
+    text-align: center;
+    font-weight: 700;
+
+    animation: moveInRight 2s ease-out;
+    margin-bottom: 6rem;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.8rem 4rem;
+    border-radius: 9rem;
+    transition: all 200ms;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.49);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.49);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #888;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 400ms;
+}
+
+.btn-white::after {
+    content: '';
+    display: inline-block;
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    content: '';
+    display: inline-block;
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/* best is to animate only two values */
+@keyframes moveInLeft {
+    /* start of the animation */
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    /* we can insert anything between */
+
+    80% {
+        transform: translateX(2rem);
+    }
+
+    /* finish of the animation */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* start of the animation */
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    /* we can insert anything between */
+
+    80% {
+        transform: translateX(-2rem);
+    }
+
+    /* finish of the animation */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn-animated {
+    animation: moveInBottom 500ms ease-out 750ms;
+    animation-fill-mode: backwards;
+}
